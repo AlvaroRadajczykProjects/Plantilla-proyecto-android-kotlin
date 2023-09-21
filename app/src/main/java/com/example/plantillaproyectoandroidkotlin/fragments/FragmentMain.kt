@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.plantillaproyectoandroidkotlin.R
 import com.example.plantillaproyectoandroidkotlin.databinding.FragmentMainBinding
@@ -31,6 +32,11 @@ class FragmentMain : Fragment() {
 
         navHostFragment = activity?.supportFragmentManager?.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
+
+        binding.button.setOnClickListener {
+            val action = FragmentMainDirections.actionFragmentMainToFragmentNext()
+            it?.findNavController()?.navigate(action)
+        }
 
         // Inflate the layout for this fragment
         return view
