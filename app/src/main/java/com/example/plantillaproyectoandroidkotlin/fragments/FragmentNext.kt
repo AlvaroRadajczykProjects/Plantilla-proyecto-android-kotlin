@@ -5,9 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import com.example.plantillaproyectoandroidkotlin.R
+import com.example.plantillaproyectoandroidkotlin.databinding.FragmentMainBinding
+import com.example.plantillaproyectoandroidkotlin.databinding.FragmentNextBinding
 
 class FragmentNext : Fragment() {
+
+    private lateinit var binding: FragmentNextBinding
+
+    private lateinit var navHostFragment: NavHostFragment
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,8 +26,14 @@ class FragmentNext : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_next, container, false)
+
+        binding = FragmentNextBinding.inflate(layoutInflater)
+        val view = binding.root
+
+        navHostFragment = activity?.supportFragmentManager?.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
+
+        return view
     }
 
 }
