@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.example.plantillaproyectoandroidkotlin"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.plantillaproyectoandroidkotlin"
-        minSdk = 28
-        targetSdk = 33
+        minSdk = 30
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -27,28 +27,29 @@ android {
             )
         }
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_19
-        targetCompatibility = JavaVersion.VERSION_19
+        sourceCompatibility = JavaVersion.VERSION_20
+        targetCompatibility = JavaVersion.VERSION_20
+    }
+
+    kotlinOptions {
+        jvmTarget = "20"
     }
 
     viewBinding {
         enable = true
     }
 
-    kotlinOptions {
-        jvmTarget = "19"
-    }
-
 }
 
 dependencies {
 
-    val fragment_version = "1.5.5"
+    val fragment_version = "1.6.1"
     // Kotlin
     implementation("androidx.fragment:fragment-ktx:$fragment_version")
 
-    val nav_version = "2.5.3"
+    val nav_version = "2.7.3"
     // Kotlin
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
@@ -57,7 +58,7 @@ dependencies {
     // Testing Navigation
     androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
 
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
